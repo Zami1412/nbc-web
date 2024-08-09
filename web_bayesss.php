@@ -6,28 +6,27 @@ $obj = new Bayes();
 // echo $obj->sumData()."<br>";
 // echo $obj->sumTrue()."<br>";
 // echo $obj->sumFalse()."<br>";
-// echo $obj->probUmur(21,0)."<br>";
 
 $jumTrue = $obj->sumTrue();
 $jumFalse = $obj->sumFalse();
 $jumData = $obj->sumData();
 
-// $a1 = 20;
-// $a2 = "st";
-// $a3 = "kurus";
-// $a4 = "sehat";
-// $a5 = "smk";
+// $a1 = absen;
+// $a2 = "uts";
+// $a3 = "uas";
+// $a4 = "praktek";
+// $a5 = "uh";
 
 //TRUE
-$absen = $obj->probUmur($a1,1);
-$uts = $obj->probTinggi($a2,1);
+$absen = $obj->probAbsen($a1,1);
+$uts = $obj->probUts($a2,1);
 $uas =$obj->probUas($a3,1);
 $praktek = $obj->probPraktek($a4,1);
 
 //FALSE
-$absen2 = $obj->probUmur($a1,0);
-$uts2 = $obj->probTinggi($a2,0);
-$uas2 = $obj->probBeratB($a3,0);
+$absen2 = $obj->probAbsen($a1,0);
+$uts2 = $obj->probUts($a2,0);
+$uas2 = $obj->probUas($a3,0);
 $praktek2 = $obj->probPraktek($a4,0);
 
 //result
@@ -101,10 +100,11 @@ if($paT > $paF){
 }
 
 // echo $obj->hasilTrue($jumTrue,$jumData,$absen,$uts,$uas,$praktek)."<br>";
-// echo $obj->hasilFalse($jumTrue,$jumData,$absen2,$uts2,$uas2,$praktek2,$pendidikan2)."<br><br>";
+// echo $obj->hasilFalse($jumTrue,$jumData,$absen2,$uts2,$uas2,$praktek2)."<br><br>";
 
 // var_dump("\npaT " . $paT);
 // var_dump("paF " . $paF);
 $result = $obj->perbandingan($paT,$paF);
-echo " Status : $result[0] <br>Presentasi diterima sebanyak : ".round($result[1],2)." % <br>Presentasi diolak sebanyak : ".round($result[2],2)." % ";
- ?>
+echo " Status : $result[0] <br>Presentasi diterima sebanyak : ".round($result[1],2)." % <br>Presentasi ditolak sebanyak : ".round($result[2],2)." % ";
+
+?>
